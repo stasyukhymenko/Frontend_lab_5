@@ -25,22 +25,22 @@ form.addEventListener('submit', function (event) {
       const newWindow = window.open('', '_blank', 'width=600,height=400');
       newWindow.document.write(`
         <html>
-          <head>
-            <title>Submitted Data</title>
-            <style>
-              body { font-family: Montserrat, sans-serif; margin: 20px; }
-              h1 { color: #000000; }
-              p { margin: 5px 0; }
-            </style>
-          </head>
-          <body>
-            <h1>Дані форми</h1>
-            <p><strong>ПІБ:</strong> ${name}</p>
-            <p><strong>Група:</strong> ${group}</p>
-            <p><strong>ID-card:</strong> ${idcard}</p>
-            <p><strong>Дата народження:</strong> ${birthday}</p>
-            <p><strong>Email:</strong> ${email}</p>
-          </body>
+            <head>
+                <title>Submitted Data</title>
+                <style>
+                    body { font-family: Montserrat, sans-serif; margin: 20px; }
+                    h1 { color: #000000; }
+                    p { margin: 5px 0; }
+                </style>
+            </head>
+            <body>
+                <h1>Дані форми</h1>
+                <p><strong>ПІБ:</strong> ${name}</p>
+                <p><strong>Група:</strong> ${group}</p>
+                <p><strong>ID-card:</strong> ${idcard}</p>
+                <p><strong>Дата народження:</strong> ${birthday}</p>
+                <p><strong>Email:</strong> ${email}</p>
+            </body>
         </html>
       `);
       newWindow.document.close();
@@ -51,7 +51,7 @@ form.addEventListener('submit', function (event) {
   
 function validateForm(name, group, idcard, birthday, email) {
     let isValid = true;
-    resetErrorsAndSuccess();
+    resetBorders();
 
     if (!nameRegex.test(name)) {
         showError(nameInput, 'Неправильний формат ПІБ. Приклад: "Сікорський І.І."');
@@ -100,10 +100,34 @@ function showSuccess(inputElement) {
     inputElement.classList.add('success');
 }
 
-function resetErrorsAndSuccess() {
+function resetBorders() {
     const inputs = document.querySelectorAll('input');
     inputs.forEach(input => {
         input.classList.remove('error');
         input.classList.remove('success');
     });
 }
+
+const changableCell = document.getElementById('changableCell');
+const colorPalette = document.getElementById('inputColor');
+
+changableCell.addEventListener('click', () => {
+    changableCell.style.backgroundColor = colorPalette.value;
+});
+
+changableCell.addEventListener('mouseover', () => {
+    const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+    changableCell.style.backgroundColor = randomColor;
+})
+
+const table = document.querySelector('table');
+
+changableCell.addEventListener('dblclick', () => {
+    const selectedColor = colorPalette.value;
+
+    for (let row of table.rows) {
+        for (let i = 1; i < row.cells.length; i += 2) {
+            row.cells[i].style.backgroundColor = selectedColor;
+        }
+    }
+});
