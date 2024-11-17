@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    font-family: "Montserrat";
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.leftPart {
+    background-color: #F4F4ED;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+label {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+input {
+    font-size: 25px;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 5px;
+    width: 100%;
+}
+
+input:focus{
+    outline: solid black 1px;
+}
+
+input.error {
+    border: 2px solid red;
+    background-color: #ffe6e6;
+}
+
+.inputContainer {
+    background-color: #6C91C2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: 600px;
+    border-radius: 20px;
+
+    -webkit-box-shadow: 10px 10px 70px -10px rgba(0,0,0,0.6);
+    -moz-box-shadow: 10px 10px 70px -10px rgba(0,0,0,0.6);
+    box-shadow: 10px 10px 70px -10px rgba(0,0,0,0.6);
+}
+
+.inputs {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.error-border {
+    border: 2px solid red;
+  }
+
+.name {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+.group {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+.idcard {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+.birthday {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+.email {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+.submitButton {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: #F4F4ED;
+    border: none;
+    -webkit-box-shadow: 10px 10px 70px -10px rgba(0,0,0,0.6);
+    -moz-box-shadow: 10px 10px 70px -10px rgba(0,0,0,0.6);
+    box-shadow: 10px 10px 70px -10px rgba(0,0,0,0.6);
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #e2e2db;
+}
+
+button:focus{
+    outline: none;
+}
+
+.rightPart {
+    background-color: #CED0CE;
+    width: 100%;
+    height: 100vh;
+}
