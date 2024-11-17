@@ -51,31 +51,41 @@ form.addEventListener('submit', function (event) {
   
 function validateForm(name, group, idcard, birthday, email) {
     let isValid = true;
-    resetErrors();
+    resetErrorsAndSuccess();
 
     if (!nameRegex.test(name)) {
         showError(nameInput, 'Неправильний формат ПІБ. Приклад: "Сікорський І.І."');
         isValid = false;
+    } else {
+        showSuccess(nameInput);
     }
 
     if (!groupRegex.test(group)) {
         showError(groupInput, 'Неправильний формат групи. Приклад: "IM-23"');
         isValid = false;
+    } else {
+        showSuccess(groupInput);
     }
 
     if (!idcardRegex.test(idcard)) {
         showError(idcardInput, 'Неправильний формат ID-карти. Приклад: "ГА №112233"');
         isValid = false;
+    } else {
+        showSuccess(idcardInput);
     }
 
     if (!birthdayRegex.test(birthday)) {
         showError(dateOfBirthInput, 'Неправильний формат дати народження. Приклад: "25.05.1889"');
         isValid = false;
+    } else {
+        showSuccess(dateOfBirthInput);
     }
 
     if (!emailRegex.test(email)) {
         showError(emailInput, 'Неправильний формат email. Приклад: "sikorsky@kpi.ua"');
         isValid = false;
+    } else {
+        showSuccess(emailInput);
     }
 
     return isValid;
@@ -86,7 +96,14 @@ function showError(inputElement, message) {
     alert(message);
 }
 
-function resetErrors() {
+function showSuccess(inputElement) {
+    inputElement.classList.add('success');
+}
+
+function resetErrorsAndSuccess() {
     const inputs = document.querySelectorAll('input');
-    inputs.forEach(input => input.classList.remove('error'));
+    inputs.forEach(input => {
+        input.classList.remove('error');
+        input.classList.remove('success');
+    });
 }

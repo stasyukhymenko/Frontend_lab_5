@@ -41,6 +41,11 @@ input.error {
     background-color: #ffe6e6;
 }
 
+input.success {
+    border: 2px solid green;
+    background-color: #e6ffe6;
+}
+
 .inputContainer {
     background-color: #6C91C2;
     display: flex;
